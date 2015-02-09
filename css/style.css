@@ -856,6 +856,18 @@
 	}
 
 
+/*blog */
+#blogbg
+{
+		position: relative;
+		color: #fff;
+		text-shadow: 0 0 0.5px rgba(255,255,255,0.25);
+		text-align: center;
+		background: url('/blog/images/tooplate_body.jpg') repeat;
+/*		padding: 5em 4em 2em 0;*/
+		margin: 0;
+		background-size: 125% auto;
+	}
 
 
 /*********************************************************************************/
