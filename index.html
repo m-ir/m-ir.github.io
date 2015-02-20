@@ -19,9 +19,17 @@ Asterix
 		<script src="js/jquery.scrolly.min.js"></script>
 		<script src="js/jquery.poptrox.min.js"></script>
 		<script src="js/skel.min.js"></script>
+        <script src="js/prefixfree.min.js"></script>
 		<script src="js/init.js"></script>
+<!--        -->
         <style>
             
+            
+            body
+            {
+             
+                text-align: justify;
+            }
             #just
             {
                 text-align: justify;
@@ -81,8 +89,271 @@ Asterix
 			font-size: 0.8em;
 		}
 		
-        
-        </style>
+            
+             
+/*
+.accordion dl {
+  border: 1px solid #ddd;
+}
+.accordion dl:after {
+  content: "";
+  display: block;
+  height: 1em;
+  width: 100%;
+  background-color: #2ba659;
+}
+.accordion dt > a {
+  text-align: center;
+  font-weight: 700;
+  padding: 2em;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  -webkit-transition: background-color 0.5s ease-in-out;
+}
+.accordion dd {
+  background-color: #eee;
+  font-size: 0.75em;
+  line-height: 1.5em;
+}
+.accordion dd > p {
+  padding: 1em 2em 1em 2em;
+}
+
+.accordion {
+  position: relative;
+  background-color: #eee;
+}
+
+.container1 {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2em 0 2em 0;
+}
+
+.accordionTitle {
+  background-color: #38cc70;
+  border-bottom: 1px solid #30bb64;
+}
+.accordionTitle:before {
+  content: "+";
+  font-size: 1.5em;
+  line-height: 0.5em;
+  float: left;
+  -moz-transition: -moz-transform 0.3s ease-in-out;
+  -o-transition: -o-transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+.accordionTitle:hover {
+  background-color: #2ba659;
+}
+
+.accordionTitleActive {
+  background-color: #2ba659;
+}
+.accordionTitleActive:before {
+  -webkit-transform: rotate(-225deg);
+  -moz-transform: rotate(-225deg);
+  transform: rotate(-225deg);
+}
+
+.accordionItem {
+  height: auto;
+  overflow: hidden;
+}
+@media all {
+  .accordionItem {
+    max-height: 50em;
+    -moz-transition: max-height 1s;
+    -o-transition: max-height 1s;
+    -webkit-transition: max-height 1s;
+    transition: max-height 1s;
+  }
+}
+@media screen and (min-width: 48em) {
+  .accordionItem {
+    max-height: 15em;
+    -moz-transition: max-height 0.5s;
+    -o-transition: max-height 0.5s;
+    -webkit-transition: max-height 0.5s;
+    transition: max-height 0.5s;
+  }
+}
+
+.accordionItemCollapsed {
+  max-height: 0;
+}
+
+.animateIn {
+  -webkit-animation-name: accordionIn;
+  -webkit-animation-duration: 0.65s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-delay: 0s;
+  -moz-animation-name: normal;
+  -moz-animation-duration: 0.65s;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-direction: alternate;
+  -moz-animation-timing-function: ease-in-out;
+  -moz-animation-fill-mode: both;
+  -moz-animation-delay: 0s;
+  animation-name: accordionIn;
+  animation-duration: 0.65s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 0s;
+}
+
+.animateOut {
+  -webkit-animation-name: accordionOut;
+  -webkit-animation-duration: 0.75s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-delay: 0s;
+  -moz-animation-name: accordionOut;
+  -moz-animation-duration: 0.75s;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-direction: alternate;
+  -moz-animation-timing-function: ease-in-out;
+  -moz-animation-fill-mode: both;
+  -moz-animation-delay: 0s;
+  animation-name: accordionOut;
+  animation-duration: 0.75s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 0s;
+}
+
+@-webkit-keyframes accordionIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+}
+@-moz-keyframes accordionIn {
+  0% {
+    opacity: 0;
+    -moz-transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: scale(1);
+  }
+}
+@keyframes accordionIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes accordionOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+  }
+}
+@-moz-keyframes accordionOut {
+  0% {
+    opacity: 1;
+    -moz-transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: scale(0.8);
+  }
+}
+@keyframes accordionOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+    
+*/
+            
+
+  
+.acc-container {
+  width:90%;
+  margin:30px auto 0 auto;
+  -webkit-border-radius:8px;
+  -moz-border-radius:8px;
+  -o-border-radius:8px;
+  border-radius:8px;
+  overflow:hidden;
+    
+}
+
+.acc-btn { 
+  width:100%;
+  margin:0 auto;
+  padding:20px 25px;
+  cursor:pointer;
+  color:#FFFFFF;
+  background:#2ba659;
+  border-bottom:1px solid #2ab660;
+}
+
+.acc-content {
+  height:0px;
+  width:100%;
+  margin:0 auto;
+  overflow:hidden;
+  background:#FFF;
+}
+
+.acc-content-inner {
+  padding:30px;
+    font-size: 0.75em;
+    text-align: justify;
+}
+
+.open {
+  height: auto;
+}
+            
+.selected {
+  color:#000;
+}
+.heading{
+    width:100%;
+  margin:0 auto;
+  padding:20px 25px;
+  color:#FFFFFF;
+  background:#b3b3b3;
+  border-bottom:1px solid #2ab660;
+}
+
+</style>
+
+
+    
+
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -142,9 +413,71 @@ Asterix
                 
 			</article>
 -->
-            <div class="box" id="blog">
-                <iframe src="/blog" width="100%" height="900" ></iframe>
+<!--            <div class="box" id="blog">-->
+<!--                <iframe src="/blog" width="100%" height="900" ></iframe>-->
+                
+                 <!----- Blog Accordian ---->
+        <div class="box" id="blog">
+            
+          <div class="acc-container">
+   <h1 class="heading"><center>Blog</center></h1>         
+<div class="acc-btn"><h1 class="selected">1. Basic introduction to Information Retrieval (IR) and Web Search</h1></div>
+<div class="acc-content open">
+  <div class="acc-content-inner">
+      <a href="http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html">Introduction to Information Retrieval</a>
+    <p><strong>Information retrieval (IR)</strong>is the activity of obtaining information resources relevant to an information need from a collection of information resources. Searches can be based on metadata or on full-text (or other content-based) indexing.
+
+Automated information retrieval systems are used to reduce what has been called "information overload". Many universities and public libraries use IR systems to provide access to books, journals and other documents. Web search engines are the most visible IR applications.<br>
+      
+        An information retrieval process begins when a user enters a query into the system. Queries are formal statements of information needs, for example search strings in web search engines. In information retrieval a query does not uniquely identify a single object in the collection. Instead, several objects may match the query, perhaps with different degrees of relevancy.
+
+An object is an entity that is represented by information in a database. User queries are matched against the database information. Depending on the application the data objects may be, for example, text documents, images, audio, mind maps or videos. Often the documents themselves are not kept or stored directly in the IR system, but are instead represented in the system by document surrogates or metadata.
+
+Most IR systems compute a numeric score on how well each object in the database matches the query, and rank the objects according to this value. The top ranking objects are then shown to the user. The process may then be iterated if the user wishes to refine the query.
+      </p>
+      <hr>
+        <a href="http://nlp.stanford.edu/IR-book/pdf/19web.pdf"> Web Search Basics</a>
+      <p>
+        A web search engine is a software system that is designed to search for information on the World Wide Web. The search results are generally presented in a line of results often referred to as search engine results pages (SERPs). The information may be a mix of web pages, images, and other types of files. Some search engines also mine data available in databases or open directories. Unlike web directories, which are maintained only by human editors, search engines also maintain real-time information by running an algorithm on a web crawler.
+         <br> 
+          The mass publishing of information on the Web is essentially useless unless
+this wealth of information can be discovered and consumed by other
+users. Early attempts at making web information “discoverable” fell into two
+broad categories: <br>(1) full-text index search engines such as Altavista, Excite
+and Infoseek  <br>(2) taxonomies populated with web pages in categories,
+such as Yahoo! The former presented the user with a keyword search interface
+supported by inverted indexes and ranking mechanisms building on
+those introduced in earlier chapters. The latter allowed the user to browse
+through a hierarchical tree of category labels.  
+    
+      </p>
+     
+      
+  </div>
+</div>
+              
+              <div class="acc-btn"><h1>2. Next Week</h1></div>
+<div class="acc-content">
+  <div class="acc-content-inner">
+      <p>
+          Working Updates!
+          
+          
+      </p>
+    </div>
+              </div>
+              
+
+
+</div>
+
         </div>
+        
+        
+        
+       
+        
+        
 <!--
 		 Portfolio 
 			<article class="container box style2">
@@ -383,5 +716,7 @@ Asterix
 			</div>
 		</section>
 
+        <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+        <script src="js/index.js"></script>
 	</body>
 </html>
