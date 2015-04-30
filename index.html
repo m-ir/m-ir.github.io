@@ -1,9 +1,261 @@
-<html>
-<body bgcolor='black'>
-<h1 align='centre'>UNDER CONSTRUCTION <br>page has been taken down for maintenance  <br>please try later .Thanks
-</h1>
-<centre>
-<img src='http://www.kitaro10.com/wp-content/uploads/2012/01/Under-Construction-21.gif'>
-</centre>
-</body>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>Word Level Language Identification in Mixed Scripts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Word Level Language Identification in Mixed Scripts" />
+        <meta name="keywords" content="Word, Level , Language,  Identification , Mixed , Scripts, multilingual , hinglish , hindi, english , fire , microsoft" />
+        <meta name="author" content="Abhinav raj , Sankha Karfa" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css' />
+		<script src="js/modernizr.custom.34978.js"></script>	
+    </head>
+    <body>
+        <div class="container">
+            <div class="codrops-top">
+                <span class="right">
+				&nbsp;
+                </span>
+                <div class="clr"></div>
+            </div>
+			<header>
+				<h1>Word Level Language Identification in <span>Mixed Script</span></h1>
+				<h2>By Abhinav Raj &amp; Sankha Karfa</h2>
+<!--
+				<p class="codrops-demos">
+					<a class="current-demo" href="index.html">Demo 1</a>
+					<a href="index2.html">Demo 2</a>
+				</p>
+-->
+			</header>
+			<section class="se-container">
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>Are you ready?</h3>
+						<p style="max-width : 90%;">
+                            
+                       <br> Dude, I don't feel like going to school today
+
+<br> +
+<br> आज विद्यालय जाने का मन नहीं है.
+                        
+<br>
+<br> आज स्कूल जाने  का मूड नहीं है। 
+                        <br><br><br>
+This is how our brain analyze and process the above statements <br>
+                        
+<br>
+                            <b>Yar ,aj <u>school</u> Jane ka <u>mood</u> nhi h..</b> <br><br>
+                            and finally ... <br> आज School जाने  का Mood नहीं है। <br><br>
+                            
+                                                    <video width="100% " controls autoplay>
+                                                        <source src="srk.mp4" type="video/mp4"></source>
+  Your browser does not support HTML5 video.
+</video><br>
+I am pretty sure no one talks like that for normal communication
+ 
+ 
+And in text data , we see much more variation. We have most of data in textual format only, which are widely meant for personal (chat, mail, sms) and social purpose( fb post, twitter, artcle, news etc).
+           <br> People  use bilingual text for communication which helps in better expression. More errors could be because of spelling mistakes and containing creative spellings (gr8 for 'great'), word play (goooood for 'good'), abbreviations (OMG for 'Oh my  God!').
+ 
+<br>In this project, we describe system for word-level language identification of mixed text. Our method uses List searching, CRF and minimum edit distance, therefore,
+can easily be implemented on most languages. Also, it can identify NER.  Its performance is carried on the test sets provided by the shared task on language Identification for English Hindi (En-Hi) Pair. The experimental results show a consistent performance with with high precision.</p>
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>The Challenge</h3>
+						<p style="max-width : 90%;">
+                            
+                            A large number of languages, including Arabic, Russian, and most of the South and South East Asian languages, are written using indigenous scripts. However, often the websites and the user generated content (such as tweets and blogs) in these languages are written using Roman script due to various socio-cultural and technological reasons. This process of phonetically representing the words of a language in a non-native script is called transliteration. Transliteration, especially into Roman script, is used abundantly on the Web not only for documents, but also for user queries that intend to search for these documents.
+<br> 
+A challenge that search engines face while processing transliterated queries and documents is that of extensive spelling variation. For instance, the word dhanyavad ("thank you" in Hindi and many other Indian languages) can be written in Roman script as dhanyavaad, dhanyvad, danyavad, danyavaad, dhanyavada, dhanyabad and so on. The aim of this project  is to systematically formalize several research problems that one must solve to tackle this unique situation prevalent in Web search for users of many languages around the world, develop related data sets, test benches and most importantly, build a research community around this important problem that has received very little attention till date. </p>
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>Task Description</h3>
+						<p>
+                            <strong>Query Word Labeling</strong><br>
+Suppose that <i>q: w1 w2 w3 … wn</i>, is a query is written Roman script. The words, <i>w1 w2</i> etc., could be Standard English words or transliterated from another language L. The task is to label the words as E or L depending on whether it an English word, or a transliterated L-language word. And then, for each transliterated word, provide the correct transliteration in the native script (i.e., the script which is used for writing L).<br><br>
+                      <center><table border="1" cellspacing="0" cellpadding="0" width="627">
+    <tbody>
+        <tr>
+            <td width="240" valign="top">
+                <p>
+                    <strong>Input query</strong>
+                </p>
+            </td>
+            <td width="387" valign="top">
+                <p>
+                    <strong>Output</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="240" valign="top">
+                <p>
+                    sachin tendulkar number of centuries
+                </p>
+            </td>
+            <td width="387" valign="top">
+                <p>
+                    sachin\H tendulkar\H number\E of\E centuries\E
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="240" valign="top">
+                <p>
+                    palak paneer recipe
+                </p>
+            </td>
+            <td width="387" valign="top">
+                <p>
+                    palak\H=पालक paneer\H=पनीर recipe\E
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="240" valign="top">
+                <p>
+                    mungeri lal ke haseen sapney
+                </p>
+            </td>
+            <td width="387" valign="top">
+                <p>
+                    mungeri\H lal\H ke\H=के haseen\H=हसीन sapney\H=सपने
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="240" valign="top">
+                <p>
+                    iguazu water fall argentina
+                </p>
+            </td>
+            <td width="387" valign="top">
+                <p>
+                    iguazu\E water\E fall\E argentina\E
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+                       </center>
+                        <p><br>
+    Notes:    Names of people , organizations and places are marked as named entity
+</p>
+<p>
+    <strong>Languages</strong>
+    : English-Hindi
+</p></p>
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+                        
+						<h3>Related Works</h3>
+                        <p style="max-width : 100%;">
+                        <br>
+                        <b>1 Graph-Base N-gram Language Identification
+on short texts.</b><br>
+N-gram approach on Twitter messages The N-gram based approach for LI (Cavnar Tren-kle, 1994) chops texts up in equally-sized character strings, N-grams, of length n. The assumed that is used is that every language uses certain N-grams more frequently than other languages, thus providing a clue on the language the text is in. This idea works due to Zipf's law stating that the size of the r-th largest occurrence of the event is inversely proportional to its rank r (Ha et al., 2003). Experimental studies in (Cavnar Trenkle, 1994) suggest that using trigrams (at the character level) generally yields the best results. In (Cavnar Trenkle, 1994) the out-of-placement measure is used to compare unlabeled text against the model. This
+measure sorts the N-grams in both the model as well as the unlabeled text separately based on their occurrence counts and compares the model's occurrence list with the texts list. Later, in (Ahmed et al., 2004) it was shown that accuracy in results is found in the use of a cumulative frequency based more time e client. The out-of-placement measure works well when suficient training data is available whereas the
+cumulative frequency measurement works equally well with little data at hand. Therefore we will use the cumulative frequency measurement in our experiments.
+ <br>
+                        <b>2 Conditional Random Field</b><br>
+CRF (Conditional Random Fields) is basically a type of Unidirected Probabilistic graphical Model. It is used to label and parse sequential data e.g natural language text , specially for Named Entity Recognition. A conditional probability P(YjX) model is defined by it.
+ <br>
+<b>3 Language Identification using Gaussian Mixture</b><br>
+Models and Shifted Delta Cepstral Features
+Automatic language identication (LID) is the process of using a computer system to identify thelanguage of a spoken utterance. Formal evaluations have indicated that the most successful approach to automatic language identication relies on using the phonotactic content of a speech signal to discriminate among a set of languages. Systems which are based on phonotactic characteristics, such as PPRLM (Parallel Phone Recognition and Language Modeling) , set of phone recognizers is typically employed to generate a parallel stream of what we call as phone sequences and a bank of n-gram language models to capture the phonotactics. Although phone- based systems provide the best LID performance, their heavy computational demands may pre- clude their use in low cost, real-time applications. An alternative approach to LID uses Gaussian mixture models (GMMs) to classify languages using the acoustic content of the speech signal. Although GMM systems are quite efficient, they do not provide the superior performance of phone-based LID systems. Recently a variation of the phonotactic approach was proposed in which a Gaussian mixture model, rather than a phone recognizer, was used to tokenize the incoming speech. This approach produced a GMM LID system whose performance was competitive with phone-based approaches but whose operation was much faster. The present work reports on the performance of GMM-based
+LID systems that use shifted-delta- cepstral (SDC) coefficients as a means of incorporating additional temporal information
+about the speech into the feature vectors. The use of temporal information spanning a large number of frames is motivated by the success of phonetic approaches that naturally base their tokenization over multiple frames. It will be shown that GMM-based LID systems that use SDC feature vectors perform as well as PPRLM and at a greatly reduced computational cost.
+ <br>
+    <b>MAX-Entropy:</b>
+ <br>
+ 
+<b>4 Comparing Natural Language Identification</b><br>
+Methods based on Markov Processes Natural language identification is the process of automated labeling textual documents by their language (e.g. this paper should be labeled as written in English). Although exact definition of the term natural language is not formed, the term covers languages used by humans for common communication (like Slovak or English), as an opposite of artificial languages (e.g. C++,Java). Automated language identification is explored usually by motivated by simplifying document preprocessing and organization of information, this is also the case of our research, which is involved in a project affiliating methods and tools for acquisition, organization and maintenance of information and knowledge in an environment of heterogeneous information resources1. Both language identification methods use the well known supervised
+learning schema . Statistical model is created for each language in the learning phase. From a pre-selected text language
+model is constructed. Then identification phase can be proceeded, documents are passed that are to be identified and to them language tags are assigned. The best fitting language model for each document is being determined by
+an evaluation function. methods are Markov Processes as Text Modeling Tool and Dunning's Language Identification
+Method.
+
+ </p>					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>Oh... what I'm gon' do?</h3>
+						<p style="max-width : 100%;">
+                            <img src="flow1.png" width="100%"/><br>
+                            <b>Flow Chart</b><br><br>
+                        <strong>Named Entity Recognition</strong>
+Named Entity Recognition, in short NER, is a task of information extraction by recognition of named entities in a unstructured text, it is helpful in natural language processing. A named entity (NE) is a phrase, it is presenting an item of a class. NEs are words which refers to organizations , person etc. NEs are further divided .Multiple dictionaries are used that are available on the internet. The dictionaries
+contains Named Entities in form of phrases. It happens in two stages: (1) Detecting named entities by looking up in a dictionary and (2) filtering out the false positives if there are any. Dictionary lookups are done using pre__n ,Ax-tree
+data structure.
+<br>The approaches used for NER use Machine Learning Techniques. Dictionary based recognizers do not require labeled text as training data. Also this approach can be applied to any language that supports part-of-speech tagger.
+ 
+<br> 
+We have used CRF++ for POS tagging along with NLTK toolkit to filter the named entity. The process encountered<br><br>
+<ul>
+    <li>1.       Word Tokenization</li>
+<!--    <li>Word Tokenization is the process of splitting up of a sentence into the words it contains known as tokens. Sentences also contains special characters ( ?  .  , ) which needs to be represented as a separate token . The task of splitting up a sentence consists of using a separator, normally space is used but punctuation also need to be used. It arises another problem like a period in “Dr." it should be treated as one token rather than two. Furthermore different languages have their punctuation styles.</li>-->
+
+    <li>2.       Pruning</li>
+    <li>3.       POS tagging</li>
+    <li>4.       Chunking</li>
+    <li>5.       Guess morph</li>
+    <li>6.       Head computation</li>
+    <li>7.       Vibhakti Computation</li>
+</ul>
+ 
+                        
+                        
+                        </p>
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>Why our model is better?</h3>
+						<p>Learning model
+                    <br>Faster
+                    <br>Simpler approach, lesser complexity
+                    <br>More accuracy</p>
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>Datasets and Tools Used</h3>
+						<p><strong>Datasets</strong> for English words are taken various websites including from Oxford Dictionary database, with each source having 3000 to 100,000 words in them . The complied English dataset contains 452 abbreviations and 504543 unique words including medical and scientific terms
+<br>
+<br><strong>Tools</strong>- CRF++, NLTK,
+<br><strong>OS</strong>- Ubuntu
+<br><strong>Language</strong>- Python</p>
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>Results</h3>
+						<p>A test data of 1270 lines for Hi-En pair was run for the model, with total 27296 tokens(en-12324, Hindi-13676, NE-1186), and it was evaluated on precision, recall and f-measure for Hindi and English and label accuracy.</p>
+                        <img src="image002.png" width="60%" />
+					</article>
+				</div>
+                 <div class="se-slope">
+					<article class="se-content" style=" background-color: #FFF;">
+                        <img src="fire_work.jpg" width="60%" />
+					</article>
+				</div>
+			</section>
+        </div>
+    </body>
 </html>
