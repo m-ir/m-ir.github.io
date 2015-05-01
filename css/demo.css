@@ -24,9 +24,11 @@ address,caption,cite,code,dfn,th,var {
 	font-style:normal;
 	font-weight:normal;
 }
+/*
 ol,ul {
 	list-style:none;
 }
+*/
 caption,th {
 	text-align:left;
 }

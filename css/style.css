@@ -82,10 +82,12 @@
 	line-height: 24px;
 	padding-top: 10px;
 }
+/*
 .se-content p:first-letter{
 	font-size: 40px;
 	font-family: 'Adobe Garamond Pro', Garamond, Palatino, 'Palatino Linotype', Times, 'Times New Roman', Georgia, serif;
 }
+*/
 .se-slope:nth-child(odd) .se-content{
 	-webkit-transform: rotate(-5deg);
 	-moz-transform: rotate(-5deg);
