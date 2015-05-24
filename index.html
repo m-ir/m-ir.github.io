@@ -1,959 +1,592 @@
-<html xmlns:v="urn:schemas-microsoft-com:vml"
-xmlns:o="urn:schemas-microsoft-com:office:office"
-xmlns:w="urn:schemas-microsoft-com:office:word"
-xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
-xmlns="http://www.w3.org/TR/REC-html40">
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>Word Level Language Identification in Mixed Scripts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Word Level Language Identification in Mixed Scripts" />
+        <meta name="keywords" content="Word, Level , Language,  Identification , Mixed , Scripts, multilingual , hinglish , hindi, english , fire , microsoft" />
+        <meta name="author" content="Abhinav raj , Sankha Karfa" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/accord.css" />
+        
+       
+<!--        <link rel="stylesheet" type="text/css" href="css/slide.css" />-->
+		<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css' />
+		<script src="js/modernizr.custom.34978.js"></script>
+        <script src="js/modernizr.custom.js"></script>
+        <style>
+        h3 span{display:none}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="codrops-top">
+                <span class="right">
+				&nbsp;
+                </span>
+                <div class="clr"></div>
+            </div>
+			<header>
+				<h1>Word Level Language Identification in <span>Mixed Script</span></h1>
+				<h2>By Abhinav Raj </h2>
+				<span align="left">
+					<p>Shared Task With:<br> <img src="http://www.whodunitchallenge.com/images/msr.png" width="10%"/></p>
+				</span>
+			</header>
+			<section class="se-container">
+				<div class="se-slope">
+					<article class="se-content" style="font-size:12.0pt">
+						<h3>Are you ready?</h3>
+						<p style="max-width : 90%; font-size:20.0pt;line-height:
+107%">
+						 When we talk with someone casually, we use combination of words from multiple language to form  sentence structure. Lets see here How the brain parallely creates sentence in multiple language and how the word selection is done. 
+						</p> <br><br>
+                            <center>
+                     <iframe src="https://onedrive.live.com/embed?cid=7B9F92105E0D2A5E&resid=7B9F92105E0D2A5E%214910&authkey=ABbLSMD_QqnzdO0&em=2" width="60%" height="450" frameborder="0" scrolling="no"></iframe></center> <br>
+					   <p style="max-width : 90%;">
+                        The words highlighted in <span style='color:red'>RED</span>
+aren’t frequently used, and we tend to use common words. Similarily </p>
+<br>
+<p style='font-size:20.0pt;line-height:
+107%'><i><b> “Ye sala UPSC ka Exam Clear hi nahi ho raha”</b></i></p> <br>
+<p>So why don’t we use just one language for communication?<br> give Shah Rukh Khan  a try:</p>
+                            
+                                                    <video width="60% " controls >
+                                                        <source src="srk.mp4" type="video/mp4"></source>
+  Your browser does not support HTML5 video.
+</video><br>
+<p>
+    I am pretty sure no one talks like that for normal communication. Usually we inherit words from other languages.
+</p>
+<p style="max-width : 90%;" align="justify">    Eg 3&gt;  </p> <p style='font-size:20.0pt;line-height:
+    107%'>“<em>Hindi Shabd kaa Prayog dost iss <strong>FB page </strong>se seekho, pura desi<strong>feel </strong> deta hai</em>”
+</p>
+<br>
+<p style="max-width : 90%;" align="justify">
+    In written communication also, we use such language. Such multilingual written data is called <strong>Mixed Script</strong>. most of data in textual format only, which are widely meant for personal (chat, mail, sms) and social purpose ( fb post, twitter, article, news etc).
+    People use bilingual text for communication which helps in better expression of thoughts in simpler way.
+</p>
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>Introduction</h3>
+						<p style="max-width : 90%;" align="justify">
+    A large number of languages, including Arabic, Russian, and most of the South and South East Asian languages, are written using indigenous scripts However,
+    often the websites and the user generated content (such as tweets and blogs) in these languages are written using Roman script due to various
+    socio-cultural and technological reasons. This process of phonetically representing the words of a language in a non-native script is called
+    transliteration. Transliteration, especially into Roman script, is used abundantly on the Web not only for documents, but also for user queries that intend
+    to search for these documents.
+<br><br>
+    A challenge that search engines face while processing transliterated queries and documents is that of extensive spelling variation. For instance, the word
+dhanyavad ("thank you" in Hindi and many other Indian languages) can be written in Roman script as <b>dhanyavaad    , dhanyvad, danyavad, danyavaad, dhanyavada, dhanyabad</b> and so on. More errors appears because of spelling mistakes and containing creative
+    spellings (gr8 for 'great'), word play (goooood for 'good'),abbreviations (OMG for 'Oh my God!').<br>
+							<center><img src="capture1.png" width=30%/></center>
+                            <p>
+    Consider Highlighted text. This is word play 
+</p><br><i>Hover over the sentence below to see  the change</i>
+<br>
+<br>
+                       
+                        
+                        
+<p id="myDiv" style="font-size:18.0pt;line-height:107%">
+    “<i ><em>Kuch</em><em> <strong>to log</strong> kahenge</em></i>”
+</p>
+<p style="max-width : 90%;" align="justify">
+    <strong><em>Log </em></strong>
+    and <strong>To </strong>are English Language words , but they are also Hindi Transliterated words. Such words are Ambiguous.
+    <br>
+    Our Brain and sentence structures logic tells us that these are Hindi Words. The meaning of the Key depends on the context.
+    <br>
+   While searching  on system  such keys gives ambiguity. This is resolved by<a href="http://en.wikipedia.org/wiki/Semantic_analysis_(linguistics)" target="_blank" title="Wiki Page"> Semantic Analysis </a>, <a href="http://en.wikipedia.org/wiki/Word-sense_disambiguation" target="_blank" title="Wiki Page">Word Sense Disambiguation</a>, Lexicon syntactic pattern mining and
+    ontology which are high level machine learning model with AI.
+</p>
+                            
+                            
+</p>
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>Task Description</h3>
+						<p>
+                            <strong>Query Word Labeling</strong><br>
+Suppose that <b>q: w1 w2 w3 … wn</b>, is a query is written Roman script. The words, <b>w1 w2</b> etc., could be Standard English words or transliterated from another language L. The task is to label the words as E or L depending on whether it an English word, or a transliterated L-language word. And then, for each transliterated word, provide the correct transliteration in the native script (i.e., the script which is used for writing L).<br><br>
+                      <center><table border="1" cellspacing="0" cellpadding="0" width="627">
+    <tbody>
+        <tr>
+            <td width="240" valign="top">
+                <p>
+                    <strong>Input query</strong>
+                </p>
+            </td>
+            <td width="387" valign="top">
+                <p>
+                    <strong>After processing</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="240" valign="top">
+                <p>
+                    sachin tendulkar number of centuries
+                </p>
+            </td>
+            <td width="387" valign="top">
+                <p>
+                    sachin\H tendulkar\H number\E of\E centuries\E
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="240" valign="top">
+                <p>
+                    palak paneer recipe
+                </p>
+            </td>
+            <td width="387" valign="top">
+                <p>
+                    palak\H=पालक paneer\H=पनीर recipe\E
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="240" valign="top">
+                <p>
+                    mungeri lal ke haseen sapney
+                </p>
+            </td>
+            <td width="387" valign="top">
+                <p>
+                    mungeri\H lal\H ke\H=के haseen\H=हसीन sapney\H=सपने
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="240" valign="top">
+                <p>
+                    iguazu water fall argentina
+                </p>
+            </td>
+            <td width="387" valign="top">
+                <p>
+                    iguazu\E water\E fall\E argentina\E
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+                       </center>
+                        <p style="max-width : 70%; margin-left: 7%;" align="left"><b>Notes</b>: Names of people , organizations and places are marked as named entity<br>
 
-<head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-<meta name=ProgId content=Word.Document>
-<meta name=Generator content="Microsoft Word 15">
-<meta name=Originator content="Microsoft Word 15">
-<link rel=File-List href="Index_files/filelist.xml">
-<!--[if gte mso 9]><xml>
- <o:DocumentProperties>
-  <o:Author>Sankha Karfa</o:Author>
-  <o:LastAuthor>Sankha Karfa</o:LastAuthor>
-  <o:Revision>2</o:Revision>
-  <o:TotalTime>14</o:TotalTime>
-  <o:Created>2015-05-04T07:14:00Z</o:Created>
-  <o:LastSaved>2015-05-04T07:33:00Z</o:LastSaved>
-  <o:Pages>1</o:Pages>
-  <o:Words>42</o:Words>
-  <o:Characters>244</o:Characters>
-  <o:Lines>2</o:Lines>
-  <o:Paragraphs>1</o:Paragraphs>
-  <o:CharactersWithSpaces>285</o:CharactersWithSpaces>
-  <o:Version>15.00</o:Version>
- </o:DocumentProperties>
- <o:OfficeDocumentSettings>
-  <o:AllowPNG/>
- </o:OfficeDocumentSettings>
-</xml><![endif]-->
-<link rel=themeData href="Index_files/themedata.thmx">
-<link rel=colorSchemeMapping href="Index_files/colorschememapping.xml">
-<!--[if gte mso 9]><xml>
- <w:WordDocument>
-  <w:DisplayBackgroundShape/>
-  <w:TrackMoves>false</w:TrackMoves>
-  <w:TrackFormatting/>
-  <w:PunctuationKerning/>
-  <w:ValidateAgainstSchemas/>
-  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
-  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
-  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
-  <w:DoNotPromoteQF/>
-  <w:LidThemeOther>EN-IN</w:LidThemeOther>
-  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
-  <w:LidThemeComplexScript>BN</w:LidThemeComplexScript>
-  <w:Compatibility>
-   <w:BreakWrappedTables/>
-   <w:SnapToGridInCell/>
-   <w:WrapTextWithPunct/>
-   <w:UseAsianBreakRules/>
-   <w:DontGrowAutofit/>
-   <w:SplitPgBreakAndParaMark/>
-   <w:EnableOpenTypeKerning/>
-   <w:DontFlipMirrorIndents/>
-   <w:OverrideTableStyleHps/>
-  </w:Compatibility>
-  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
-  <m:mathPr>
-   <m:mathFont m:val="Cambria Math"/>
-   <m:brkBin m:val="before"/>
-   <m:brkBinSub m:val="&#45;-"/>
-   <m:smallFrac m:val="off"/>
-   <m:dispDef/>
-   <m:lMargin m:val="0"/>
-   <m:rMargin m:val="0"/>
-   <m:defJc m:val="centerGroup"/>
-   <m:wrapIndent m:val="1440"/>
-   <m:intLim m:val="subSup"/>
-   <m:naryLim m:val="undOvr"/>
-  </m:mathPr></w:WordDocument>
-</xml><![endif]--><!--[if gte mso 9]><xml>
- <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
-  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
-  LatentStyleCount="371">
-  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"/>
-  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 1"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 2"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 3"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 4"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 5"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 6"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 7"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 8"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 9"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 6"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 7"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 8"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 9"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 1"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 2"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 3"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 4"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 5"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 6"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 7"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 8"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 9"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Normal Indent"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="footnote text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="annotation text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="header"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="footer"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index heading"/>
-  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="caption"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="table of figures"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="envelope address"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="envelope return"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="footnote reference"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="annotation reference"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="line number"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="page number"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="endnote reference"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="endnote text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="table of authorities"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="macro"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="toa heading"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Bullet"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Number"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Bullet 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Bullet 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Bullet 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Bullet 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Number 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Number 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Number 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Number 5"/>
-  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Closing"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Signature"/>
-  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
-   UnhideWhenUsed="true" Name="Default Paragraph Font"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text Indent"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Continue"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Continue 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Continue 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Continue 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Continue 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Message Header"/>
-  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Salutation"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Date"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text First Indent"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text First Indent 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Note Heading"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text Indent 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text Indent 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Block Text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Hyperlink"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="FollowedHyperlink"/>
-  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"/>
-  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Document Map"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Plain Text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="E-mail Signature"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Top of Form"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Bottom of Form"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Normal (Web)"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Acronym"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Address"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Cite"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Code"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Definition"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Keyboard"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Preformatted"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Sample"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Typewriter"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Variable"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Normal Table"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="annotation subject"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="No List"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Outline List 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Outline List 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Outline List 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Simple 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Simple 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Simple 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Classic 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Classic 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Classic 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Classic 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Colorful 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Colorful 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Colorful 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Columns 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Columns 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Columns 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Columns 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Columns 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 6"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 7"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 8"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 6"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 7"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 8"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table 3D effects 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table 3D effects 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table 3D effects 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Contemporary"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Elegant"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Professional"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Subtle 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Subtle 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Web 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Web 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Web 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Balloon Text"/>
-  <w:LsdException Locked="false" Priority="39" Name="Table Grid"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Theme"/>
-  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"/>
-  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"/>
-  <w:LsdException Locked="false" Priority="34" QFormat="true"
-   Name="List Paragraph"/>
-  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
-  <w:LsdException Locked="false" Priority="30" QFormat="true"
-   Name="Intense Quote"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
-  <w:LsdException Locked="false" Priority="19" QFormat="true"
-   Name="Subtle Emphasis"/>
-  <w:LsdException Locked="false" Priority="21" QFormat="true"
-   Name="Intense Emphasis"/>
-  <w:LsdException Locked="false" Priority="31" QFormat="true"
-   Name="Subtle Reference"/>
-  <w:LsdException Locked="false" Priority="32" QFormat="true"
-   Name="Intense Reference"/>
-  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
-  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
-   UnhideWhenUsed="true" Name="Bibliography"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"/>
-  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"/>
-  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"/>
-  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"/>
-  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"/>
-  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"/>
-  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"/>
-  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"/>
-  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"/>
-  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 1"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 1"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 1"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 2"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 2"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 2"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 3"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 3"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 3"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 4"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 4"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 4"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 5"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 5"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 5"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 6"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 6"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 6"/>
-  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"/>
-  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"/>
-  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 1"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 1"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 1"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 2"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 2"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 2"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 3"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 3"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 3"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 4"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 4"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 4"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 5"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 5"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 5"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 6"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 6"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 6"/>
- </w:LatentStyles>
-</xml><![endif]-->
-<style>
+<b>Languages</b>: English-Hindi</p>
+
+
+<p style="max-width : 70%; " align="left">Eg.</p> <p><em span style='font-size:20.0pt;line-height:
+    107%'>[ Sonali] Aj [Delhi] Ja rahi hai</em>
+</p>
+ <br><br>
+<p  style="max-width : 70%; margin-left: 7%;" align="left">
+    Here 2 things can be noted
+</p>
+<ul  style="max-width : 70%; margin-left: 8%;" align="left" >
+    <li>
+        Sonali and Delhi are name of person and place, and it doesn’t change with language
+    </li>
+    <li>
+        Aj(aaj), ja(jaa), rahi(rhi), hai(h).. all these words don’t have correct English spelling and hence the spelling variation is highly observed.
+    </li>
+</ul>
+
+
+
+<p style="max-width : 50%; margin-left: 100px;" align="left">One
+more example<br><br>
+</p>
+
+<p style='font-size:20.0pt;line-height:
+107%'> <strong><i>“AAP Congress ki  ‘B-Team’ hai" </i></strong></p>
+                        </p> </article>
+				</div>
+				
+				
+				
+				
+				
+				<div class="se-slope">
+					<article class="se-content">
+				<h3> Challenges </h3>
+					<p align="left">
+				<ol style="max-width : 60%; margin-left: 20%; font-size:14.0pt;" align="left">
+    <li>
+        <strong>No </strong>
+        direct classification is possible using any way. Nueral networks and SVM failed.
+    </li>
+    <li>
+        Ambiguous names (APPLE doesn’t tells you if its fruit or the company)
+    </li>
+    <li>
+        <strong>No </strong> proper and exact dictionary for non native language words
+    </li>
+    <li>
+        Spelling variations as discussed.
+    </li>
+    <li>
+        How to make computer thnk and decide like human and make decision??
+    </li>
+    <li>
+        Managing Database(5L words in Eng)
+    </li>
+    <li>
+        Noise
+    </li>
+    <li>
+        Unseen data
+    </li>
+    <li>
+        Conceptualization
+    </li>
+    <li>
+        Sentimental analysis
+    </li>
+    <li>
+        <strong>No </strong> clear approach using frequency n ngram
+    </li>
+</ol>	
+
+					</p>	
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+                        
+						<h3>Related Works</h3>
 <!--
- /* Font Definitions */
- @font-face
-	{font-family:"Cambria Math";
-	panose-1:2 4 5 3 5 4 6 3 2 4;
-	mso-font-charset:1;
-	mso-generic-font-family:roman;
-	mso-font-format:other;
-	mso-font-pitch:variable;
-	mso-font-signature:0 0 0 0 0 0;}
-@font-face
-	{font-family:"Calibri Light";
-	panose-1:2 15 3 2 2 2 4 3 2 4;
-	mso-font-charset:0;
-	mso-generic-font-family:swiss;
-	mso-font-pitch:variable;
-	mso-font-signature:-1610611985 1073750139 0 0 415 0;}
-@font-face
-	{font-family:Calibri;
-	panose-1:2 15 5 2 2 2 4 3 2 4;
-	mso-font-charset:0;
-	mso-generic-font-family:swiss;
-	mso-font-pitch:variable;
-	mso-font-signature:-536870145 1073786111 1 0 415 0;}
-@font-face
-	{font-family:Aharoni;
-	panose-1:2 1 8 3 2 1 4 3 2 3;
-	mso-font-charset:0;
-	mso-generic-font-family:auto;
-	mso-font-pitch:variable;
-	mso-font-signature:2051 0 0 0 33 0;}
-@font-face
-	{font-family:"Arial Rounded MT Bold";
-	panose-1:2 15 7 4 3 5 4 3 2 4;
-	mso-font-charset:0;
-	mso-generic-font-family:swiss;
-	mso-font-pitch:variable;
-	mso-font-signature:3 0 0 0 1 0;}
-@font-face
-	{font-family:"Addis Ababa";
-	panose-1:0 0 0 0 0 0 0 0 0 0;
-	mso-font-charset:0;
-	mso-generic-font-family:auto;
-	mso-font-pitch:variable;
-	mso-font-signature:-2147483601 1207959562 335544320 0 1 0;}
-@font-face
-	{font-family:Berylium;
-	panose-1:2 4 6 2 6 5 1 1 1 3;
-	mso-font-charset:0;
-	mso-generic-font-family:roman;
-	mso-font-pitch:variable;
-	mso-font-signature:-1610612625 1073750026 0 0 131 0;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{mso-style-unhide:no;
-	mso-style-qformat:yes;
-	mso-style-parent:"";
-	margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:8.0pt;
-	margin-left:0cm;
-	line-height:106%;
-	mso-pagination:widow-orphan;
-	font-size:11.0pt;
-	mso-bidi-font-size:14.0pt;
-	font-family:"Calibri",sans-serif;
-	mso-ascii-font-family:Calibri;
-	mso-ascii-theme-font:minor-latin;
-	mso-fareast-font-family:Calibri;
-	mso-fareast-theme-font:minor-latin;
-	mso-hansi-font-family:Calibri;
-	mso-hansi-theme-font:minor-latin;
-	mso-bidi-font-family:"Times New Roman";
-	mso-bidi-theme-font:minor-bidi;
-	mso-fareast-language:EN-US;}
-h1
-	{mso-style-priority:9;
-	mso-style-unhide:no;
-	mso-style-qformat:yes;
-	mso-style-link:"Heading 1 Char";
-	mso-style-next:Normal;
-	margin-top:12.0pt;
-	margin-right:0cm;
-	margin-bottom:0cm;
-	margin-left:0cm;
-	margin-bottom:.0001pt;
-	line-height:106%;
-	mso-pagination:widow-orphan lines-together;
-	page-break-after:avoid;
-	mso-outline-level:1;
-	font-size:16.0pt;
-	mso-bidi-font-size:20.0pt;
-	font-family:"Calibri Light",sans-serif;
-	mso-ascii-font-family:"Calibri Light";
-	mso-ascii-theme-font:major-latin;
-	mso-fareast-font-family:"Times New Roman";
-	mso-fareast-theme-font:major-fareast;
-	mso-hansi-font-family:"Calibri Light";
-	mso-hansi-theme-font:major-latin;
-	mso-bidi-font-family:"Times New Roman";
-	mso-bidi-theme-font:major-bidi;
-	color:#2E74B5;
-	mso-themecolor:accent1;
-	mso-themeshade:191;
-	mso-font-kerning:0pt;
-	mso-fareast-language:EN-US;
-	font-weight:normal;}
-p.MsoHeader, li.MsoHeader, div.MsoHeader
-	{mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-style-link:"Header Char";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	tab-stops:center 225.65pt right 451.3pt;
-	font-size:11.0pt;
-	mso-bidi-font-size:14.0pt;
-	font-family:"Calibri",sans-serif;
-	mso-ascii-font-family:Calibri;
-	mso-ascii-theme-font:minor-latin;
-	mso-fareast-font-family:Calibri;
-	mso-fareast-theme-font:minor-latin;
-	mso-hansi-font-family:Calibri;
-	mso-hansi-theme-font:minor-latin;
-	mso-bidi-font-family:"Times New Roman";
-	mso-bidi-theme-font:minor-bidi;
-	mso-fareast-language:EN-US;}
-p.MsoFooter, li.MsoFooter, div.MsoFooter
-	{mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-style-link:"Footer Char";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	tab-stops:center 225.65pt right 451.3pt;
-	font-size:11.0pt;
-	mso-bidi-font-size:14.0pt;
-	font-family:"Calibri",sans-serif;
-	mso-ascii-font-family:Calibri;
-	mso-ascii-theme-font:minor-latin;
-	mso-fareast-font-family:Calibri;
-	mso-fareast-theme-font:minor-latin;
-	mso-hansi-font-family:Calibri;
-	mso-hansi-theme-font:minor-latin;
-	mso-bidi-font-family:"Times New Roman";
-	mso-bidi-theme-font:minor-bidi;
-	mso-fareast-language:EN-US;}
-span.Heading1Char
-	{mso-style-name:"Heading 1 Char";
-	mso-style-priority:9;
-	mso-style-unhide:no;
-	mso-style-locked:yes;
-	mso-style-link:"Heading 1";
-	mso-ansi-font-size:16.0pt;
-	mso-bidi-font-size:20.0pt;
-	font-family:"Calibri Light",sans-serif;
-	mso-ascii-font-family:"Calibri Light";
-	mso-ascii-theme-font:major-latin;
-	mso-fareast-font-family:"Times New Roman";
-	mso-fareast-theme-font:major-fareast;
-	mso-hansi-font-family:"Calibri Light";
-	mso-hansi-theme-font:major-latin;
-	mso-bidi-font-family:"Times New Roman";
-	mso-bidi-theme-font:major-bidi;
-	color:#2E74B5;
-	mso-themecolor:accent1;
-	mso-themeshade:191;}
-span.HeaderChar
-	{mso-style-name:"Header Char";
-	mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-style-unhide:no;
-	mso-style-locked:yes;
-	mso-style-link:Header;}
-span.FooterChar
-	{mso-style-name:"Footer Char";
-	mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-style-unhide:no;
-	mso-style-locked:yes;
-	mso-style-link:Footer;}
-.MsoChpDefault
-	{mso-style-type:export-only;
-	mso-default-props:yes;
-	font-size:10.0pt;
-	mso-ansi-font-size:10.0pt;
-	mso-bidi-font-size:10.0pt;
-	font-family:"Calibri",sans-serif;
-	mso-ascii-font-family:Calibri;
-	mso-ascii-theme-font:minor-latin;
-	mso-fareast-font-family:Calibri;
-	mso-fareast-theme-font:minor-latin;
-	mso-hansi-font-family:Calibri;
-	mso-hansi-theme-font:minor-latin;
-	mso-bidi-font-family:"Times New Roman";
-	mso-bidi-theme-font:minor-bidi;
-	mso-fareast-language:EN-US;}
- /* Page Definitions */
- @page
-	{mso-footnote-separator:url("Index_files/header.html") fs;
-	mso-footnote-continuation-separator:url("Index_files/header.html") fcs;
-	mso-endnote-separator:url("Index_files/header.html") es;
-	mso-endnote-continuation-separator:url("Index_files/header.html") ecs;}
-@page WordSection1
-	{size:595.3pt 841.9pt;
-	margin:72.0pt 72.0pt 72.0pt 72.0pt;
-	mso-header-margin:35.4pt;
-	mso-footer-margin:35.4pt;
-	mso-paper-source:0;}
-div.WordSection1
-	{page:WordSection1;}
+                        <p style="max-width : 100%;">
+                        <br>
+                        <b>1 Graph-Base N-gram Language Identification
+on short texts.</b><br>
+N-gram approach on Twitter messages The N-gram based approach for LI (Cavnar Tren-kle, 1994) chops texts up in equally-sized character strings, N-grams, of length n. The assumed that is used is that every language uses certain N-grams more frequently than other languages, thus providing a clue on the language the text is in. This idea works due to Zipf's law stating that the size of the r-th largest occurrence of the event is inversely proportional to its rank r (Ha et al., 2003). Experimental studies in (Cavnar Trenkle, 1994) suggest that using trigrams (at the character level) generally yields the best results. In (Cavnar Trenkle, 1994) the out-of-placement measure is used to compare unlabeled text against the model. This
+measure sorts the N-grams in both the model as well as the unlabeled text separately based on their occurrence counts and compares the model's occurrence list with the texts list. Later, in (Ahmed et al., 2004) it was shown that accuracy in results is found in the use of a cumulative frequency based more time e client. The out-of-placement measure works well when suficient training data is available whereas the
+cumulative frequency measurement works equally well with little data at hand. Therefore we will use the cumulative frequency measurement in our experiments.
+ <br>
+                        <b>2 Conditional Random Field</b><br>
+CRF (Conditional Random Fields) is basically a type of Unidirected Probabilistic graphical Model. It is used to label and parse sequential data e.g natural language text , specially for Named Entity Recognition. A conditional probability P(YjX) model is defined by it.
+ <br>
+<b>3 Language Identification using Gaussian Mixture</b><br>
+Models and Shifted Delta Cepstral Features
+Automatic language identication (LID) is the process of using a computer system to identify thelanguage of a spoken utterance. Formal evaluations have indicated that the most successful approach to automatic language identication relies on using the phonotactic content of a speech signal to discriminate among a set of languages. Systems which are based on phonotactic characteristics, such as PPRLM (Parallel Phone Recognition and Language Modeling) , set of phone recognizers is typically employed to generate a parallel stream of what we call as phone sequences and a bank of n-gram language models to capture the phonotactics. Although phone- based systems provide the best LID performance, their heavy computational demands may pre- clude their use in low cost, real-time applications. An alternative approach to LID uses Gaussian mixture models (GMMs) to classify languages using the acoustic content of the speech signal. Although GMM systems are quite efficient, they do not provide the superior performance of phone-based LID systems. Recently a variation of the phonotactic approach was proposed in which a Gaussian mixture model, rather than a phone recognizer, was used to tokenize the incoming speech. This approach produced a GMM LID system whose performance was competitive with phone-based approaches but whose operation was much faster. The present work reports on the performance of GMM-based
+LID systems that use shifted-delta- cepstral (SDC) coefficients as a means of incorporating additional temporal information
+about the speech into the feature vectors. The use of temporal information spanning a large number of frames is motivated by the success of phonetic approaches that naturally base their tokenization over multiple frames. It will be shown that GMM-based LID systems that use SDC feature vectors perform as well as PPRLM and at a greatly reduced computational cost.
+ <br>
+    <b>MAX-Entropy:</b>
+ <br>
+ 
+<b>4 Comparing Natural Language Identification</b><br>
+Methods based on Markov Processes Natural language identification is the process of automated labeling textual documents by their language (e.g. this paper should be labeled as written in English). Although exact definition of the term natural language is not formed, the term covers languages used by humans for common communication (like Slovak or English), as an opposite of artificial languages (e.g. C++,Java). Automated language identification is explored usually by motivated by simplifying document preprocessing and organization of information, this is also the case of our research, which is involved in a project affiliating methods and tools for acquisition, organization and maintenance of information and knowledge in an environment of heterogeneous information resources1. Both language identification methods use the well known supervised
+learning schema . Statistical model is created for each language in the learning phase. From a pre-selected text language
+model is constructed. Then identification phase can be proceeded, documents are passed that are to be identified and to them language tags are assigned. The best fitting language model for each document is being determined by
+an evaluation function. methods are Markov Processes as Text Modeling Tool and Dunning's Language Identification
+Method.
+
+ </p>			
 -->
-</style>
-<!--[if gte mso 10]>
-<style>
- /* Style Definitions */
- table.MsoNormalTable
-	{mso-style-name:"Table Normal";
-	mso-tstyle-rowband-size:0;
-	mso-tstyle-colband-size:0;
-	mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-style-parent:"";
-	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
-	mso-para-margin:0cm;
-	mso-para-margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	font-size:10.0pt;
-	font-family:"Calibri",sans-serif;
-	mso-ascii-font-family:Calibri;
-	mso-ascii-theme-font:minor-latin;
-	mso-hansi-font-family:Calibri;
-	mso-hansi-theme-font:minor-latin;
-	mso-fareast-language:EN-US;}
-</style>
-<![endif]--><!--[if gte mso 9]><xml>
- <o:shapedefaults v:ext="edit" spidmax="1026"/>
-</xml><![endif]--><!--[if gte mso 9]><xml>
- <o:shapelayout v:ext="edit">
-  <o:idmap v:ext="edit" data="1"/>
- </o:shapelayout></xml><![endif]-->
-</head>
+                        
+                        <div class="acc-container" id="blog" >         
+                            <div class="acc-btn"><p  style="max-width : 90%;" align="center" class="selected" id="1"><a href="#1">1. Basic introduction to Information Retrieval (IR)</a></p></div>
+<div class="acc-content open">
+  <div class="acc-content-inner">
+    <p style="max-width : 100%; color : black;" align="justify">
+         <a href="http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html">Introduction to Information Retrieval</a><br>
+        <strong>Information retrieval (IR)</strong>is the activity of obtaining information resources relevant to an information need from a collection of information resources. Searches can be based on metadata or on full-text (or other content-based) indexing.
 
-<body bgcolor=black lang=EN-IN style='tab-interval:36.0pt'>
+Automated information retrieval systems are used to reduce what has been called "information overload". Many universities and public libraries use IR systems to provide access to books, journals and other documents. Web search engines are the most visible IR applications.<br>
+      
+        An information retrieval process begins when a user enters a query into the system. Queries are formal statements of information needs, for example search strings in web search engines. In information retrieval a query does not uniquely identify a single object in the collection. Instead, several objects may match the query, perhaps with different degrees of relevancy.
 
-<div class=WordSection1>
+An object is an entity that is represented by information in a database. User queries are matched against the database information. Depending on the application the data objects may be, for example, text documents, images, audio, mind maps or videos. Often the documents themselves are not kept or stored directly in the IR system, but are instead represented in the system by document surrogates or metadata.
 
-<h1 align=center style='text-align:center'><span lang=EN-US style='font-size:
-26.0pt;line-height:106%;font-family:"Addis Ababa";background:black;mso-shading-themecolor:
-text1;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></h1>
+Most IR systems compute a numeric score on how well each object in the database matches the query, and rank the objects according to this value. The top ranking objects are then shown to the user. The process may then be iterated if the user wishes to refine the query.
+      </p>
+     </div>
+</div>
+       <div class="acc-btn"><p  style="max-width : 90%; color: white;" align="center" class="selected" id="2"><a href="#1">2. Web Search</a></p></div>
+		<div class="acc-content">
+  			<div class="acc-content-inner">
+      <p style="max-width : 100%; color : black;" align="justify">
+           <a href="http://nlp.stanford.edu/IR-book/pdf/19web.pdf"> Web Search Basics</a><br>
+        A web search engine is a software system that is designed to search for information on the World Wide Web. The search results are generally presented in a line of results often referred to as search engine results pages (SERPs). The information may be a mix of web pages, images, and other types of files. Some search engines also mine data available in databases or open directories. Unlike web directories, which are maintained only by human editors, search engines also maintain real-time information by running an algorithm on a web crawler.
+         <br> 
+          The mass publishing of information on the Web is essentially useless unless
+this wealth of information can be discovered and consumed by other
+users. Early attempts at making web information “discoverable” fell into two
+broad categories: <br>(1) full-text index search engines such as Altavista, Excite
+and Infoseek  <br>(2) taxonomies populated with web pages in categories,
+such as Yahoo! The former presented the user with a keyword search interface
+supported by inverted indexes and ranking mechanisms building on
+those introduced in earlier chapters. The latter allowed the user to browse
+through a hierarchical tree of category labels.  
+    
+      </p>      
+  </div>
+</div>
+              
+              <div class="acc-btn" id="3"><p style="max-width : 90% color : white;" align="center"><a href="#1">3. Graph-Base N-gram Language Identification
+on short texts</a></p></div>
+<div class="acc-content">
+  <div class="acc-content-inner">
+      <p style="max-width : 100%; color : black;" align="justify">
+        
+          N-gram approach on Twitter messages The N-gram based approach for LI (Cavnar Tren-kle, 1994) chops texts up in equally-sized character strings, N-grams, of length n. The assumed that is used is that every language uses certain N-grams more frequently than other languages, thus providing a clue on the language the text is in. This idea works due to Zipf's law stating that the size of the r-th largest occurrence of the event is inversely proportional to its rank r (Ha et al., 2003). Experimental studies in (Cavnar Trenkle, 1994) suggest that using trigrams (at the character level) generally yields the best results. In (Cavnar Trenkle, 1994) the out-of-placement measure is used to compare unlabeled text against the model. This
+measure sorts the N-grams in both the model as well as the unlabeled text separately based on their occurrence counts and compares the model's occurrence list with the texts list. Later, in (Ahmed et al., 2004) it was shown that accuracy in results is found in the use of a cumulative frequency based more time e client. The out-of-placement measure works well when suficient training data is available whereas the
+cumulative frequency measurement works equally well with little data at hand. Therefore we will use the cumulative frequency measurement in our experiments.
+          
+      </p>
+    </div>
+</div>
+							 <div class="acc-btn" id="4"><p style="max-width : 90% color : white;" align="center"><a href="#2"> 4. Conditional Random Field</a></p></div>
+<div class="acc-content">
+  <div class="acc-content-inner">
+      <p style="max-width : 100%; color : black;" align="justify">
+        CRF (Conditional Random Fields) is basically a type of Unidirected Probabilistic graphical Model. It is used to label and parse sequential data e.g natural language text , specially for Named Entity Recognition. A conditional probability P(YjX) model is defined by it.          
+          
+      </p>
+    </div>
+</div>
+							 <div class="acc-btn" id="5"><p style="max-width : 90% color : white;" align="center" ><a href="#4"> 5. Language Identification using Gaussian Mixture</a></p></div>
+<div class="acc-content">
+  <div class="acc-content-inner">
+      <p style="max-width : 100%; color : black;" align="justify">
+        Models and Shifted Delta Cepstral Features
+Automatic language identication (LID) is the process of using a computer system to identify thelanguage of a spoken utterance. Formal evaluations have indicated that the most successful approach to automatic language identication relies on using the phonotactic content of a speech signal to discriminate among a set of languages. Systems which are based on phonotactic characteristics, such as PPRLM (Parallel Phone Recognition and Language Modeling) , set of phone recognizers is typically employed to generate a parallel stream of what we call as phone sequences and a bank of n-gram language models to capture the phonotactics. Although phone- based systems provide the best LID performance, their heavy computational demands may pre- clude their use in low cost, real-time applications. An alternative approach to LID uses Gaussian mixture models (GMMs) to classify languages using the acoustic content of the speech signal. Although GMM systems are quite efficient, they do not provide the superior performance of phone-based LID systems. Recently a variation of the phonotactic approach was proposed in which a Gaussian mixture model, rather than a phone recognizer, was used to tokenize the incoming speech. This approach produced a GMM LID system whose performance was competitive with phone-based approaches but whose operation was much faster. The present work reports on the performance of GMM-based
+LID systems that use shifted-delta- cepstral (SDC) coefficients as a means of incorporating additional temporal information
+about the speech into the feature vectors. The use of temporal information spanning a large number of frames is motivated by the success of phonetic approaches that naturally base their tokenization over multiple frames. It will be shown that GMM-based LID systems that use SDC feature vectors perform as well as PPRLM and at a greatly reduced computational cost.
+          
+          
+      </p>
+    </div>
+</div>
+              			 <div class="acc-btn" id="6"><p style="max-width : 90% color : white;" align="center" ><a href="#4">6. Comparing Natural Language Identification</a></p></div>
+<div class="acc-content">
+  <div class="acc-content-inner">
+      <p style="max-width : 100%; color : black;" align="justify">
+       Methods based on Markov Processes Natural language identification is the process of automated labeling textual documents by their language (e.g. this paper should be labeled as written in English). Although exact definition of the term natural language is not formed, the term covers languages used by humans for common communication (like Slovak or English), as an opposite of artificial languages (e.g. C++,Java). Automated language identification is explored usually by motivated by simplifying document preprocessing and organization of information, this is also the case of our research, which is involved in a project affiliating methods and tools for acquisition, organization and maintenance of information and knowledge in an environment of heterogeneous information resources1. Both language identification methods use the well known supervised
+learning schema . Statistical model is created for each language in the learning phase. From a pre-selected text language
+model is constructed. Then identification phase can be proceeded, documents are passed that are to be identified and to them language tags are assigned. The best fitting language model for each document is being determined by
+an evaluation function. methods are Markov Processes as Text Modeling Tool and Dunning's Language Identification
+Method.
+          
+          
+      </p>
+    </div>
+</div>
+              
+              
 
-<h1 align=center style='text-align:center'><span lang=EN-US style='font-size:
-26.0pt;line-height:106%;font-family:"Addis Ababa";background:black;mso-shading-themecolor:
-text1;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></h1>
-
-<h1 align=center style='text-align:center'><span lang=EN-US style='font-size:
-26.0pt;line-height:106%;font-family:"Addis Ababa";background:black;mso-shading-themecolor:
-text1;mso-ansi-language:EN-US'>I think, you landed here by mistake. Are you
-sure, you wanna see on</span><span lang=EN-US style='font-size:26.0pt;
-line-height:106%;font-family:"Addis Ababa";mso-ansi-language:EN-US'> this
-page??<br>
-</span><span lang=EN-US style='mso-ansi-language:EN-US'><br>
-The page had been taken down, �Coz it wasn�t a winner<o:p></o:p></span></h1>
-
-<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><br>
-<br style='mso-special-character:line-break'>
-<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
-<![endif]><o:p></o:p></span></p>
-
-<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-style='font-size:28.0pt;line-height:106%;font-family:"Arial Rounded MT Bold",sans-serif;
-color:white;mso-themecolor:background1;mso-ansi-language:EN-US'>If<span
-style='mso-spacerun:yes'>� </span>this win, then there is no point of putting
-this Link up.<br>
-</span><span lang=EN-US style='font-size:22.0pt;line-height:106%;font-family:
-Aharoni;color:#2F5597;mso-themecolor:accent5;mso-themeshade:191;mso-style-textfill-fill-color:
-#2F5597;mso-style-textfill-fill-themecolor:accent5;mso-style-textfill-fill-alpha:
-100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
-EN-US'><br>
-<br>
-<br>
-<br>
-<br style='mso-special-character:line-break'>
-<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
-<![endif]><o:p></o:p></span></p>
-
-<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-style='font-size:22.0pt;line-height:106%;font-family:"Berylium",serif;
-color:#2F5597;mso-themecolor:accent5;mso-themeshade:191;mso-style-textfill-fill-color:
-#2F5597;mso-style-textfill-fill-themecolor:accent5;mso-style-textfill-fill-alpha:
-100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
-EN-US'>#Thanks for visit<o:p></o:p></span></p>
-
-<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-style='font-size:16.0pt;line-height:106%;font-family:"Berylium",serif;
-color:#2F5597;mso-themecolor:accent5;mso-themeshade:191;mso-style-textfill-fill-color:
-#2F5597;mso-style-textfill-fill-themecolor:accent5;mso-style-textfill-fill-alpha:
-100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
-EN-US'>#Thanks to ISE@MSRIT for meeting the OBJECTIVE of voting <o:p></o:p></span></p>
-
-<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-style='font-size:22.0pt;line-height:106%;font-family:Aharoni;color:#2E75B6;
-mso-themecolor:accent1;mso-themeshade:191;mso-style-textfill-fill-color:#2E75B6;
-mso-style-textfill-fill-themecolor:accent1;mso-style-textfill-fill-alpha:100.0%;
-mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-style='font-size:22.0pt;line-height:106%;font-family:Aharoni;mso-ansi-language:
-EN-US'><o:p>&nbsp;</o:p></span></p>
 
 </div>
+                        
+                    </article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>Oh... what I'm gon' do?</h3>
+						<p style="max-width : 100%;">
+                            <img src="flow1.png" width="90%"/><br>
+                            <b>Flow Chart</b><br><br>
+                        <strong>Named Entity Recognition</strong>
+Named Entity Recognition, in short NER, is a task of information extraction by recognition of named entities in a unstructured text, it is helpful in natural language processing. A named entity (NE) is a phrase, it is presenting an item of a class. NEs are words which refers to organizations , person etc. NEs are further divided .Multiple dictionaries are used that are available on the internet. The dictionaries
+contains Named Entities in form of phrases. It happens in two stages: (1) Detecting named entities by looking up in a dictionary and (2) filtering out the false positives if there are any. Dictionary lookups are done using pre__n ,Ax-tree
+data structure.
+<br>The approaches used for NER use Machine Learning Techniques. Dictionary based recognizers do not require labeled text as training data. Also this approach can be applied to any language that supports part-of-speech tagger.
+ 
+<br> 
+We have used CRF++ for POS tagging along with NLTK toolkit to filter the named entity. The process encountered<br><br>
+<ol style="max-width : 60%; margin-left: 20%; font-size:14.0pt;" align="left">
+    <li>      Word Tokenization</li>
+<!--    <li>Word Tokenization is the process of splitting up of a sentence into the words it contains known as tokens. Sentences also contains special characters ( ?  .  , ) which needs to be represented as a separate token . The task of splitting up a sentence consists of using a separator, normally space is used but punctuation also need to be used. It arises another problem like a period in “Dr." it should be treated as one token rather than two. Furthermore different languages have their punctuation styles.</li>-->
 
-</body>
+    <li>      Pruning</li>
+    <li>       POS tagging</li>
+    <li>       Chunking</li>
+    <li>       Guess morph</li>
+    <li>       Head computation</li>
+    <li>       Vibhakti Computation</li>
+</ol>
+ 
+                        
+                        
+                        </p>
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>Why our model is better?</h3>
+						<p>Learning model
+                    <br>Faster
+                    <br>Simpler approach, lesser complexity
+                    <br>More accuracy</p>
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content">
+						<h3>Datasets and Tools Used</h3>
+						<p><strong>Datasets</strong> for English words are taken various websites including from Oxford Dictionary database, with each source having 3000 to 100,000 words in them . The complied English dataset contains 452 abbreviations and 504543 unique words including medical and scientific terms
+<br>
+<br><strong>Tools</strong>- CRF++, NLTK,
+<br><strong>OS</strong>- Ubuntu
+<br><strong>Language</strong>- Python</p>
+					</article>
+				</div>
+				<div class="se-slope">
+					<article class="se-content" >
+						<h3>Results</h3>
+						<p style="max-width : 100%;" align="justify">A test data of 1270 lines for Hi-En pair was run for the model, with total 27296 tokens(en-12324, Hindi-13676, NE-1186), and it was evaluated on precision, recall and f-measure for Hindi and English and label accuracy.
+						<br>
+						
+    The ideal way to measure the effectiveness of an algorithm output on task is not an obvious choice. We try to be as thorough as possible to reward or
+    penalize in all the different aspects of the labeling task, and try to adapt traditional metrics wherever applicable.
+<br><br>
+						</p>
+    <p style="font-size :16.0pt;"  align="center">Evaluation metrics</p>
+<br>
+<p style="max-width : 100%;" align="justify">
 
+    <strong> </strong>
+    We used the following metrics for evaluating task . Our metrics reflect various degrees of strictness, including the strictest (Exact Query Match Fraction)
+    to the most lenient (Labeling Accuracy) metrics.<strong></strong>
+	<br><br></p>
+<p align="center">
+    <img width="577" height="31" src="result_files/image002.jpg" />
+    <strong></strong>
+<br><br>
+
+    <img width="603" height="46" src="result_files/image004.jpg"/>
+    <strong></strong>
+<br><br>
+						</p>
+						<p style="max-width : 100%;" align="justify">
+    The value of this ratio can be treated as a measure of transliteration precision, but the absolute values of the numerator and denominator are also
+    important. For example, when there are 2000 true L words in the reference annotations, it is possible that a method can detect 5 of these and produce the
+    correct transliterations for each, and have a ratio value of 1.0. Another method can detect 200 of these, and produce correct transliterations for 150, and
+    obtain a value of 0.75. We treat the second method as a better one. We note that, as Knight and Graehl point out, back-transliteration is less forgiving
+    than forward transliteration for there may be many ways to transliterate a word in another script (forward transliteration) but there is only one way in
+    which a transliterated word can be rendered back in its native form (back-transliteration). Our task thus requires the algorithm to only perform
+    back-transliteration and thus there is only one correct transliteration answer for a word in a given context. Along these lines, we also compute the
+    transliteration precision, recall and F-score as below.<strong></strong>
+<br><br>
+							</p>
+<p align="center">
+
+    <img width="421" height="35" src="/result_files/image006.jpg"/>
+    <strong></strong>
+<br><br>
+
+    <img width="367" height="35" src="result_files/image008.jpg"/>
+    <strong></strong>
+<br>
+<br>
+    <img width="273" height="32" src="result_files/image010.jpg"/>
+    <strong></strong>
+<br><br>
+
+    <img width="501" height="35" src="result_files/image012.jpg"/>
+    <strong></strong>
+<br><br>
+	</p>
+						<p style="max-width : 100%;" align="justify">
+    Correct label pairs imply E−E and L−L, while incorrect label pairs include E−L and L−E, where E is for English and L stands for the language initial (H for
+    Hindi). Note that the notation E−L implies Output: E, Reference: L, and likewise for the other pairs.
+<br><br>	</p>
+<p align="center">
+
+    <img width="371" height="35" src="result_files/image014.jpg"/>
+<br><br>
+
+    <img width="349" height="35" src="result_files/image016.jpg"/>
+    <strong></strong>
+<br><br>
+
+    <img width="247" height="32" src="result_files/image018.jpg"/>
+    <strong></strong>
+<br>
+</p>
+						<p style="max-width : 100%;" align="justify">
+<br>
+
+    Similarly, we have L-precision, L-recall, and L−F-Score for L where L is Hindi. We note that all names with ambiguous L-labelling and transliterations were
+    excluded from the analysis. In our transliteration evaluation strategy we relaxed certain constraints for string matching. We handle certain cases of
+    unicode normalization, and do not penalize mistakes made on homorganic nasal case,<em>chandrabindu</em><em> </em>replaced by <em>bindu</em><em> </em>and
+    the nonobligatory use of the <em>nukta</em>.<strong></strong>
+						</p>
+						<br>
+                        <img src="imageres.png" width="60%" />
+					</article>
+				</div>
+                 <div class="se-slope">
+					<article class="se-content" style=" background-color: #FFF;">
+                        <img src="fire_work.jpg" width="60%" />
+	
+					</article>
+				</div>
+			</section>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.poptrox.min.js"></script>
+        <script src="js/index.js"></script>
+		<script>
+$('#myDiv')
+    .data('textToggle','“कुछ तो लोग कहेंगे”')
+    .hover(function (e) {
+        var that = $(this);
+        
+        // get the text from data attribute
+        var textToSet = that.data('textToggle');
+        
+        // save the current text so it can be reverted
+        that.data('textToggle', that.text());
+        
+        // set the new text
+        that.text(textToSet);
+    }, function (e) {
+        var that = $(this);
+        
+        // get the text from data attribute
+        var textToSet = that.data('textToggle');
+        
+        // save the current text so it can be reverted
+        that.data('textToggle', that.text());
+        
+        // set the new text
+        that.text(textToSet);
+    });
+    
+
+
+
+</script>
+
+        <script>
+        var fadeInterval = 50
+
+        $('h3').html(function(_, txt){
+            var words= $.trim(txt).split('');
+           return  '<span>' + words.join('</span><span>') +'</span>';
+        }).find('span').each(function(idx, elem){   
+              $(elem).delay(idx * fadeInterval).fadeIn();
+        });
+
+        </script>
+		
+    </body>
 </html>
